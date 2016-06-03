@@ -5,34 +5,34 @@ import ContactsAPI from '../utils/ContactsAPI';
 export default {
   recieveContacts: () => {
     ContactsAPI
-      .getContacts('http://locahost:3001/api/contacts')
+      .getContacts('http://localhost:3001/api/contacts')
       .then(contacts => {
         AppDispatcher.dispatch({
           actionType: ContactConstants.RECIEVE_CONTACTS,
           contacts: contacts
         });
       })
-      .catch(message => {
+      .catch(error => {
         AppDispatcher.dispatch({
           actionType: ContactConstants.RECIEVE_CONTACTS_ERROR,
-          message: message
+          message: error
         });
       });
   },
 
-  getContact: () => {
+  getContact: (id) => {
     ContactsAPI
-      .getContact('http://locahost:3001/api/contacts/' + id)
+      .getContact('http://localhost:3001/api/contacts/' + id)
       .then(contact => {
         AppDispatcher.dispatch({
           actionType: ContactConstants.RECIEVE_CONTACT,
           contact: contact
         });
       })
-      .catch(message => {
+      .catch(error => {
         AppDispatcher.dispatch({
           actionType: ContactConstants.RECIEVE_CONTACT_ERROR,
-          message: message
+          message: error
         });
       });
   }

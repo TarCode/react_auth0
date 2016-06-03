@@ -51,6 +51,19 @@ function getDefaultModules() {
       {
         test: /\.(mp4|ogg|svg)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /node_modules[\\\/]auth0-lock[\\\/].*\.js$/,
+        loaders: [
+          'transform-loader/cacheable?brfs',
+          'transform-loader/cacheable?packageify'
+        ]
+      }, {
+        test: /node_modules[\\\/]auth0-lock[\\\/].*\.ejs$/,
+        loader: 'transform-loader/cacheable?ejsify'
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   };

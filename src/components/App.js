@@ -5,6 +5,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import Auth0Lock from 'auth0-lock';
 
 export default class AppComponent extends Component {
 
@@ -15,7 +16,7 @@ export default class AppComponent extends Component {
   render() {
     return (
       <div>
-        <Header lock={ this.lock }/>
+        <Header lock={ this.lock }></Header>
         <Grid>
           <Row>
             <Col xs={12} md={3}>
