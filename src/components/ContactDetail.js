@@ -38,13 +38,17 @@ class ContactDetailComponent extends Component {
   }
 
   render() {
+    let contactDetails = <p>Not logged in</p>;
+    if (this.state.contact) {
+      contactDetails = <div>
+                        <img src={this.state.contact.image} width="150" />
+                        <h1>{this.state.contact.name}</h1>
+                        <h3>{this.state.contact.email}</h3>
+                      </div>;
+    }
     return (
       <div>
-        <div>
-          <img src={this.state.contact.image} width="150" />
-          <h1>{this.state.contact.name}</h1>
-          <h3>{this.state.contact.email}</h3>
-        </div>
+        { contactDetails }
       </div>
     );
   }
